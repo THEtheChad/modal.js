@@ -1,4 +1,6 @@
 (function(window, document){
+
+  // Temporary underscore replacement
   var _ = {
     extend: function(target){
       var args = _.slice(arguments, 1), i = args.length, obj, key;
@@ -14,6 +16,11 @@
       return Array.prototype.slice.call(array, n || 0);
     }
   };
+
+  /**
+   * Cross-browser event handlers
+   *
+   */
 
   function addEvent(obj, evType, fn, useCapture){
     if(obj.addEventListener){
@@ -35,6 +42,11 @@
     }
   }
 
+  /**
+   * Used to create non empty arrays
+   *
+   * return: array
+   */
   function nonEmpty(){
     var args = _.slice(arguments), ret = [];
     for(var i = 0, ilen = args.length; i < ilen; i++){
@@ -43,8 +55,10 @@
     return ret;
   }
 
+
   var body = document.getElementsByTagName('body')[0];
 
+  // Class definition
   function Modal(config){
 
     // Set defaults and import user config
@@ -161,26 +175,3 @@
   window.prefix.js = capitalize(pre);
 
 })(window);
-
-// (function(window, document){
-
-
-
-
-// function Modal(config){
-
-//   _.extend(this, config);
-
-// }
-
-// Modal.fn = Modal.prototype = {
-
-
-
-
-
-
-// }
-
-
-// })(window, document)
